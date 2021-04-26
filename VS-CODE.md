@@ -46,3 +46,14 @@ After making several commits or after cloning a repository with an existing comm
 ## 7. Color Picker
 ## 8. Copy Relative Path
 ## 9. Create File and Folder: One The Go Docker
+=======
+# javascript-server
+
+1. Visual Studio Code CLI
+2. Git Integration
+3. Debugging
+4. Live Share
+5. Split Views, Zen Mode
+6. Helpers (Intellisense, Context Menus..)
+7. Integrated Terminal
+8. Plugins and Themes
