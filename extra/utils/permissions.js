@@ -1,11 +1,4 @@
-const permissions = {
-  getUsers: {
-    all: ["head-trainer"],
-    read: ["trainee", "trainer"],
-    write: ["trainer"],
-    delete: [],
-  },
-};
+import {permissions} from './../constants';
 
 const hasPermission = (moduleName, role, permission) => {
   for (const [key] of Object.entries(permissions)) {
@@ -24,4 +17,5 @@ const hasPermission = (moduleName, role, permission) => {
 
   return false;
 };
-console.log(hasPermission("getUsers", "head-trainer", "all"));
+
+export default hasPermission;

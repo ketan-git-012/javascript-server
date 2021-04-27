@@ -1,26 +1,7 @@
-var isReviewerValid = Boolean;
-var isTraineeValid = Boolean;
-validCount = 0;
-inValidCount = 0;
-validUser = [];
-inValidUser = [];
-const users = [
-  {
-    traineeEmail: "trainee1@successive.tech",
-    reviewerEmail: "reviewer1@successive.tech",
-  },
-  {
-    traineeEmail: "trainee@successive",
-    reviewerEmail: "reviewer2@successive.tech",
-  },
-];
+import ValidateEmail from './helpers';
 
-const ValidateEmail = (email) =>
-/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(
-    email
-  )
-    ? true
-    : false;
+const validUser = [];
+const inValidUser = [];
 
 const ValidateUsers = (users) => {
   users.forEach((user) => {
@@ -38,4 +19,5 @@ const ValidateUsers = (users) => {
   }
 };
 
-ValidateUsers(users);
+
+export default ValidateUsers;
