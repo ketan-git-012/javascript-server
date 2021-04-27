@@ -8,20 +8,22 @@ const permissions = {
 };
 
 const hasPermission = (moduleName, role, permission) => {
-  for (const [key] of Object.entries(permissions)) {
-    if (moduleName === key) {
-      for (const [keys, values] of Object.entries(permissions.getUsers)) {
-        if (keys == permission) {
-          for (const [keys, valueR] of Object.entries(values)) {
-            if (valueR == role) {
-              return true;
-            }
-          }
-        }
-      }
-    }
-  }
+  const module = permissions[moduleName];
+  return module[permission].includes(role) || module['all'].includes(role);
+  // for (const [key] of Object.entries(permissions)) {
+  //   if (moduleName === key) {
+  //     for (const [keys, values] of Object.entries(permissions.getUsers)) {
+  //       if (keys == permission) {
+  //         for (const [keys, valueR] of Object.entries(values)) {
+  //           if (valueR == role) {
+  //             return true;
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 
-  return false;
+  // return false;
 };
-console.log(hasPermission("getUsers", "head-trainer", "all"));
+console.log(hasPermission("getUsers", "head-trainer", "read"));
