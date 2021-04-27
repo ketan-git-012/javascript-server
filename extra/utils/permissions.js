@@ -12,8 +12,8 @@ const hasPermission = (moduleName, role, permission) => {
     if (moduleName === key) {
       for (const [keys, values] of Object.entries(permissions.getUsers)) {
         if (keys == permission) {
-          for (const [keys, valueP] of Object.entries(values)) {
-            if (valueP == role) {
+          for (const [keys, valueR] of Object.entries(values)) {
+            if (valueR == role) {
               return true;
             }
           }
@@ -24,4 +24,4 @@ const hasPermission = (moduleName, role, permission) => {
 
   return false;
 };
-console.log(hasPermission("getUsers", "trainee", "read"));
+console.log(hasPermission("getUsers", "head-trainer", "all"));
