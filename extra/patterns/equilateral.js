@@ -6,21 +6,21 @@ const rl = readline.createInterface({
 });
 
 function displayPyramid(n) {
-  for (var i = 0; i < n; i++) {
+  for (var row = 0; row < n; row++) {
     var str = "";
-    for (var j = 1; j < n - i; j++) {
+    for (var column = 1; column < n - row; column++) {
       str = str + " ";
     }
-    for (var k = 1; k <= 2 * i + 1; k++) {
+    for (var k = 1; k <= 2 * row + 1; k++) {
       str = str + "*";
     }
     console.log(str);
   }
 }
 
-for (i = 2; i < process.argv.length; i++) {
-  if (process.argv[i] > 1 && process.argv[i] < 11) {
-    displayPyramid(process.argv[i]);
+for (row = 2; row < process.argv.length; row++) {
+  if (process.argv[row] > 1 && process.argv[row] < 11) {
+    displayPyramid(process.argv[row]);
   } else {
     process.stdout.write("Enter number between 2 to 10");
   }

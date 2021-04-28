@@ -6,23 +6,23 @@ const rl = readline.createInterface({
 });
 function createDimondShape(n) {
   var s = n - 1;
-  for (var i = 1; i <= n; i++) {
-    for (var c = 1; c <= s; c++) process.stdout.write(" ");
+  for (var row = 1; row <= n; row++) {
+    for (var column = 1; column <= s; column++) process.stdout.write(" ");
 
     s--;
 
-    for (c = 1; c <= 2 * i - 1; c++) process.stdout.write("*");
+    for (column = 1; column <= 2 * row - 1; column++) process.stdout.write("*");
 
     process.stdout.write("\n");
   }
   s = 1;
 
-  for (i = 1; i <= n - 1; i++) {
-    for (c = 1; c <= s; c++) process.stdout.write(" ");
+  for (row = 1; row <= n - 1; row++) {
+    for (column = 1; column <= s; column++) process.stdout.write(" ");
 
     s++;
 
-    for (c = 1; c <= 2 * (n - i) - 1; c++) process.stdout.write("*");
+    for (column = 1; column <= 2 * (n - row) - 1; column++) process.stdout.write("*");
 
     process.stdout.write("\n");
   }
