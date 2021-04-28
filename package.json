@@ -2,7 +2,11 @@
   "devDependencies": {
     "@babel/core": "^7.13.16",
     "@babel/node": "^7.13.13",
-    "@babel/preset-env": "^7.13.15"
+    "@babel/preset-env": "^7.13.15",
+    "@types/node": "^15.0.1",
+    "nodemon": "^2.0.7",
+    "tsc-watch": "^4.2.9",
+    "typescript": "^4.2.4"
   },
   "name": "javascript-server",
   "description": "",
@@ -111,7 +115,12 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx babel-node extra"
+    "start": "npx babel-node extra",
+    "start:extra": "npx babel-node extra",
+    "start:extraTs": "tsc-watch --project . --onSuccess \"npm run nodemon\"",
+    "nodemon": "nodemon ./dist/index.js",
+    "lint": "./node_modules/tslint/bin/tslint -c tslint.json -p tsconfig.json --exclude 'node_modules/**/*.{j,t}s'",
+    "lint:fix": "npm run lint --fix"
   },
   "repository": {
     "type": "git",
