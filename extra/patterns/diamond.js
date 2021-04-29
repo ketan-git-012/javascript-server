@@ -1,9 +1,3 @@
-const readline = require("readline");
-
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
 function createDimondShape(n) {
   var numberOfRows = n - 1;
   for (var row = 1; row <= n; row++) {
@@ -28,12 +22,4 @@ function createDimondShape(n) {
   }
 }
 
-rl.question("Print a diamond with the rows: ", (rows) => {
-  if (rows > 1 && rows < 11) {
-    createDimondShape(rows);
-    process.exit();
-  } else {
-    process.stdout.write("Please enter number between 2 to 10");
-    process.exit();
-  }
-});
+export default createDimondShape;
