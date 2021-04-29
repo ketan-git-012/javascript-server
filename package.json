@@ -120,7 +120,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start" : "nodemon --exec ts-node src/index.ts",
+    "start": "nodemon --exec ts-node src/index.ts",
     "start:extra": "npx babel-node extra",
     "start:extraTs": "tsc-watch --project . --onSuccess \"npm run nodemon\"",
     "nodemon": "nodemon ./dist/index.js",
