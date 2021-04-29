@@ -5,29 +5,20 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-function displayPyramid(n) {
-  for (var row = 0; row < n; row++) {
-    var str = "";
-    for (var column = 1; column < n - row; column++) {
-      str = str + " ";
+function displayPyramid(noOfRows) {
+  for (var row = 0; row < noOfRows; row++) {
+    var star = "";
+    for (var column = 1; column < noOfRows - row; column++) {
+      star = star + " ";
     }
-    for (var k = 1; k <= 2 * row + 1; k++) {
-      str = str + "*";
+    for (var vertical = 1; vertical <= 2 * row + 1; vertical++) {
+      star = star + "*";
     }
-    console.log(str);
+    console.log(star);
   }
 }
 
-for (row = 2; row < process.argv.length; row++) {
-  if (process.argv[row] > 1 && process.argv[row] < 11) {
-    displayPyramid(process.argv[row]);
-  } else {
-    process.stdout.write("Enter number between 2 to 10");
-  }
-}
-
-
-rl.question('Print a triangle with rows: ', (rows)=>{
+rl.question("Print a triangle with rows: ", (rows) => {
   if (rows > 1 && rows < 11) {
     displayPyramid(rows);
     process.exit();
@@ -35,4 +26,4 @@ rl.question('Print a triangle with rows: ', (rows)=>{
     process.stdout.write("Please enter number between 2 to 10");
     process.exit();
   }
-})
+});
