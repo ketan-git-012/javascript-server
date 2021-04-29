@@ -1,7 +1,3 @@
-var isReviewerValid = Boolean;
-var isTraineeValid = Boolean;
-validCount = 0;
-inValidCount = 0;
 validUser = [];
 inValidUser = [];
 const users = [
