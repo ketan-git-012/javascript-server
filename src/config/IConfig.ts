@@ -1,6 +1,6 @@
 interface IConfig{
-  port: Number,
-  env : String
+  PORT: String,
+  NODE_ENV : String
 }
 
 export {

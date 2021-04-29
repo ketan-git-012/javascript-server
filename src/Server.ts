@@ -1,19 +1,28 @@
-import http from 'http';
-import cors from 'cors';
-import { IConfig } from './config/IConfig';
-import express from 'express';
+import express = require("express");
+
 class Server {
-  app: any;
-  constructor(config: IConfig){
+  public app: express.Application;
+  PORT: String;
+  constructor(config) {
     this.app = express();
+    this.PORT = config.PORT;
   }
 
-  setUpRoutes(){
+  bootstrap() {
+    this.setUpRoutes();
   }
 
-  run(){
-    const httpServer = http.createServer(this.app);
+  setUpRoutes() {
+    this.app.get("/health-check", (req: express.Request, res: express.Response) => {
+      res.status(200).send("I am OK");
+    });
   }
 
-
+  run() {
+    this.app.listen(this.PORT, () => {
+      console.log(`server is running on PORT ${this.PORT}`)
+    });
+  }
 }
+
+export default Server;
