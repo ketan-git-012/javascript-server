@@ -1,38 +1,39 @@
+const readline = require("readline");
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
 function createDimondShape(n) {
-  var s=n-1;
-for(var i=1;i<=n;i++)
-{
-     for (var c = 1;c<=s;c++)
-      process.stdout.write(" ");
+  var numberOfRows = n - 1;
+  for (var row = 1; row <= n; row++) {
+    for (var column = 1; column <= numberOfRows; column++) process.stdout.write(" ");
 
-    s--;
+    numberOfRows--;
 
-     for(c=1;c<=2*i-1;c++)
-         process.stdout.write("*");
-
-     process.stdout.write("\n");
-}
-s=1;
-
-for(i=1;i<=n-1;i++)
-{
-   for(c=1;c<=s;c++)
-    process.stdout.write(" ");
-
-    s++;
-
-    for(c=1;c<=2*(n-i)-1;c++)
-     process.stdout.write("*");
+    for (column = 1; column <= 2 * row - 1; column++) process.stdout.write("*");
 
     process.stdout.write("\n");
-}
+  }
+  numberOfRows = 1;
+
+  for (row = 1; row <= n - 1; row++) {
+    for (column = 1; column <= numberOfRows; column++) process.stdout.write(" ");
+
+    numberOfRows++;
+
+    for (column = 1; column <= 2 * (n - row) - 1; column++) process.stdout.write("*");
+
+    process.stdout.write("\n");
+  }
 }
 
-for (i = 2; i < process.argv.length; i++) {
-  if (process.argv[i] > 1 && process.argv[i] < 11) {
-    createDimondShape(process.argv[i]);
+rl.question("Print a diamond with the rows: ", (rows) => {
+  if (rows > 1 && rows < 11) {
+    createDimondShape(rows);
+    process.exit();
+  } else {
+    process.stdout.write("Please enter number between 2 to 10");
+    process.exit();
   }
-  else{
-    process.stdout.write("Enter number between 2 to 10");
-  }
-}
+});
