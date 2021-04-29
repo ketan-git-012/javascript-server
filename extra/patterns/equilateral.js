@@ -1,14 +1,29 @@
-const displayPyramid = (n) => {
-  for (var i = 0; i < n; i++) {
-    var str = "";
-    for (var j = 1; j < n - i; j++) {
-      str = str + " ";
+const readline = require("readline");
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+function displayPyramid(noOfRows) {
+  for (var row = 0; row < noOfRows; row++) {
+    var star = "";
+    for (var column = 1; column < noOfRows - row; column++) {
+      star = star + " ";
     }
-    for (var k = 1; k <= 2 * i + 1; k++) {
-      str = str + "*";
+    for (var vertical = 1; vertical <= 2 * row + 1; vertical++) {
+      star = star + "*";
     }
-    console.log(str);
+    console.log(star);
   }
 };
 
-export default displayPyramid;
+rl.question("Print a triangle with rows: ", (rows) => {
+  if (rows > 1 && rows < 11) {
+    displayPyramid(rows);
+    process.exit();
+  } else {
+    process.stdout.write("Please enter number between 2 to 10");
+    process.exit();
+  }
+});
