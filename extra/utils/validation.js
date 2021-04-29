@@ -10,12 +10,12 @@ const ValidateUsers = (users) => {
   });
 
   console.log("Valid Users:", validUser.length);
-  for(let i=0;i<validUser.length;i++){
-    console.log(validUser[i]);
+  for(let index=0;index<validUser.length;index++){
+    console.log(validUser[index]);
   }
   console.log("Invalid Users:", inValidUser.length);
-  for(let i=0;i<inValidUser.length;i++){
-    console.log(inValidUser[i]);
+  for(let index=0;index<inValidUser.length;index++){
+    console.log(inValidUser[index]);
   }
 };
 
