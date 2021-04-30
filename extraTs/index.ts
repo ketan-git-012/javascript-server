@@ -1,6 +1,12 @@
 import { IUsers } from "./interfaces";
 import { createDimondShape, displayPyramid } from "./patterns";
 import { hasPermission, ValidateUsers } from './utils';
+const readline = require("readline");
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
 
 const users: IUsers[] = [
   {
@@ -16,24 +22,30 @@ const users: IUsers[] = [
 let name: Boolean = true;
 
 //Diamond Shape
-for (let i = 2; i < process.argv.length; i++) {
-  if (Number(process.argv[i]) > 1 && Number(process.argv[i]) < 11) {
-    createDimondShape(process.argv[i]);
+rl.question("Print a diamond with the rows: ", (rows) => {
+  if (rows > 1 && rows < 11) {
+    createDimondShape(rows);
+    process.exit();
   } else {
-    process.stdout.write("Enter number between 2 to 10");
+    process.stdout.write("Please enter number between 2 to 10");
+    process.exit();
   }
-}
+});
+
 
 //Equilateral
-for (let i = 2; i < process.argv.length; i++) {
-  if (Number(process.argv[i]) > 1 && Number(process.argv[i]) < 11) {
-    displayPyramid(process.argv[i]);
-  } else {
-    process.stdout.write("Enter number between 2 to 10");
-  }
-}
 
-name = hasPermission("getUsers", "head-trainer", "read");
+rl.question("Print a triangle with rows: ", (rows) => {
+  if (rows > 1 && rows < 11) {
+    displayPyramid(rows);
+    process.exit();
+  } else {
+    process.stdout.write("Please enter number between 2 to 10");
+    process.exit();
+  }
+})
+
+name = hasPermission("getUsers", "head-trainer", "read")
 console.log(name);
 
 ValidateUsers(users);
