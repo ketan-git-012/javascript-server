@@ -5,12 +5,12 @@ interface IPermission {
   delete : [string],
 }
 
-interface IUsers {
+interface IUser {
   traineeEmail : string,
   reviewerEmail : string,
 }
 
 export {
   IPermission,
-  IUsers,
+  IUser,
 }

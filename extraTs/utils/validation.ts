@@ -1,11 +1,11 @@
 import ValidateEmail from './helpers';
-import { IUsers } from '../interfaces';
+import { IUser } from '../interfaces';
 
 const validUser = [];
 const inValidUser = [];
 
-const ValidateUsers = (users: IUsers[]): void => {
-  users.forEach((user: IUsers) => {
+const ValidateUsers = (users: IUser[]): void => {
+  users.forEach((user: IUser) => {
     ValidateEmail(user.reviewerEmail) ? validUser.push(user.reviewerEmail)  : inValidUser.push(user.reviewerEmail);
     ValidateEmail(user.traineeEmail) ? validUser.push(user.traineeEmail) : inValidUser.push(user.traineeEmail);
   });

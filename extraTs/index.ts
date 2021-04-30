@@ -1,23 +1,12 @@
-import { IUsers } from "./interfaces";
 import { createDimondShape, displayPyramid } from "./patterns";
-import { hasPermission, ValidateUsers } from './utils';
+import { hasPermission, ValidateUsers } from "./utils";
+import { users } from "./constants";
 const readline = require("readline");
 
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
-
-const users: IUsers[] = [
-  {
-    traineeEmail: "trainee1@successive.tech",
-    reviewerEmail: "reviewer1@successive.tech",
-  },
-  {
-    traineeEmail: "trainee@successive",
-    reviewerEmail: "reviewer2@successive.tech",
-  },
-];
 
 let name: Boolean = true;
 
@@ -32,7 +21,6 @@ rl.question("Print a diamond with the rows: ", (rows) => {
   }
 });
 
-
 //Equilateral
 
 rl.question("Print a triangle with rows: ", (rows) => {
@@ -43,11 +31,9 @@ rl.question("Print a triangle with rows: ", (rows) => {
     process.stdout.write("Please enter number between 2 to 10");
     process.exit();
   }
-})
+});
 
-name = hasPermission("getUsers", "head-trainer", "read")
+name = hasPermission("getUsers", "head-trainer", "read");
 console.log(name);
 
 ValidateUsers(users);
-
-
