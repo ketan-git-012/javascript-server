@@ -13,14 +13,17 @@ class Server {
   }
 
   setUpRoutes() {
-    this.app.get("/health-check", (req: express.Request, res: express.Response) => {
-      res.status(200).send("I am OK");
-    });
+    this.app.get(
+      "/health-check",
+      (req: express.Request, res: express.Response) => {
+        res.status(200).send("I am OK");
+      }
+    );
   }
 
   run() {
     this.app.listen(this.PORT, () => {
-      console.log(`server is running on PORT ${this.PORT}`)
+      console.log(`server is running on PORT ${this.PORT}`);
     });
   }
 }
