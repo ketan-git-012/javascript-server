@@ -6,7 +6,7 @@ const users = [
     reviewerEmail: "reviewer1@successive.tech",
   },
   {
-    traineeEmail: "trainee@successive",
+    traineeEmail: "trainee@gmail.com",
     reviewerEmail: "reviewer2@successive.tech",
   },
 ];
