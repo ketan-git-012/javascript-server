@@ -4,7 +4,7 @@ import { IUsers } from '../interfaces';
 const validUser = [];
 const inValidUser = [];
 
-const ValidateUsers = (users) => {
+const ValidateUsers = (users: IUsers[]): void => {
   users.forEach((user: IUsers) => {
     ValidateEmail(user.reviewerEmail) ? validUser.push(user.reviewerEmail)  : inValidUser.push(user.reviewerEmail);
     ValidateEmail(user.traineeEmail) ? validUser.push(user.traineeEmail) : inValidUser.push(user.traineeEmail);

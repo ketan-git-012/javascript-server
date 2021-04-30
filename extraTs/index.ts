@@ -1,7 +1,8 @@
+import { IUsers } from "./interfaces";
 import { createDimondShape, displayPyramid } from "./patterns";
 import { hasPermission, ValidateUsers } from './utils';
 
-const users = [
+const users: IUsers[] = [
   {
     traineeEmail: "trainee1@successive.tech",
     reviewerEmail: "reviewer1@successive.tech",
@@ -12,6 +13,7 @@ const users = [
   },
 ];
 
+let name: Boolean = true;
 
 //Diamond Shape
 for (let i = 2; i < process.argv.length; i++) {
@@ -30,7 +32,9 @@ for (let i = 2; i < process.argv.length; i++) {
     process.stdout.write("Enter number between 2 to 10");
   }
 }
-console.log("Permission access: ",hasPermission("getUsers", "head-trainer", "read"));
+
+name = hasPermission("getUsers", "head-trainer", "read");
+console.log(name);
 
 ValidateUsers(users);
 
