@@ -23,7 +23,13 @@ class Server {
 
   run() {
     this.app.listen(this.PORT, () => {
-      console.log(`server is running on PORT ${this.PORT}`);
+      try{
+        console.log(`server is running on PORT ${this.PORT}`);
+      }
+      catch(error){
+        console.log(error);
+
+      }
     });
   }
 }
