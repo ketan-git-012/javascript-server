@@ -1,6 +1,6 @@
 import express = require("express");
 
-import router from './router';
+import router from "./router";
 
 class Server {
   public app: express.Application;
@@ -15,13 +15,13 @@ class Server {
     this.setUpRoutes();
   }
 
-  initBodyParser(){
+  initBodyParser() {
     this.app.use(express.json());
-    this.app.use(express.urlencoded({extended : true}));
+    this.app.use(express.urlencoded({ extended: true }));
   }
 
   setUpRoutes() {
-    this.app.use('/api',router);
+    this.app.use("/api", router);
     this.app.get(
       "/health-check",
       (req: express.Request, res: express.Response) => {
@@ -32,12 +32,10 @@ class Server {
 
   run() {
     this.app.listen(this.PORT, () => {
-      try{
+      try {
         console.log(`server is running on PORT ${this.PORT}`);
-      }
-      catch(error){
+      } catch (error) {
         console.log(error);
-
       }
     });
   }
