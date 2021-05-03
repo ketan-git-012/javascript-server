@@ -10,8 +10,8 @@ const permissions = {
 const hasPermission = (moduleName, role, permission) => {
   const module = permissions[moduleName];
   if(!module){
-    return console.log("Module is not present");
+    return false;
   }
   return module[permission].includes(role) || module["all"].includes(role);
 };
-console.log(hasPermission("getUsers", "head-trainer", "read"));
+console.log(hasPermission("getUsers", "head-trainers", "read"));
