@@ -1,6 +1,4 @@
-// import bodyParser = require("body-parser");
 import express = require("express");
-import router from './router';
 
 class Server {
   public app: express.Application;
@@ -21,7 +19,6 @@ class Server {
   }
 
   setUpRoutes() {
-    this.app.use('/api',router);
     this.app.get(
       "/health-check",
       (req: express.Request, res: express.Response) => {
