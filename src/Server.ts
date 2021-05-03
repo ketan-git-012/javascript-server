@@ -1,5 +1,6 @@
-import bodyParser = require("body-parser");
+// import bodyParser = require("body-parser");
 import express = require("express");
+import router from './router';
 
 class Server {
   public app: express.Application;
@@ -10,16 +11,17 @@ class Server {
   }
 
   bootstrap() {
-    this.setUpRoutes();
     this.initBodyParser();
+    this.setUpRoutes();
   }
 
   initBodyParser(){
-    this.app.use(bodyParser.json());
-    this.app.use(bodyParser.urlencoded({extended : true}));
+    this.app.use(express.json());
+    this.app.use(express.urlencoded({extended : true}));
   }
 
   setUpRoutes() {
+    this.app.use('/api',router);
     this.app.get(
       "/health-check",
       (req: express.Request, res: express.Response) => {
