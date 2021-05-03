@@ -1,3 +1,4 @@
+import bodyParser = require("body-parser");
 import express = require("express");
 
 class Server {
@@ -10,6 +11,12 @@ class Server {
 
   bootstrap() {
     this.setUpRoutes();
+    this.initBodyParser();
+  }
+
+  initBodyParser(){
+    this.app.use(bodyParser.json());
+    this.app.use(bodyParser.urlencoded({extended : true}));
   }
 
   setUpRoutes() {
