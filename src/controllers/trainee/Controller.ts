@@ -1,7 +1,5 @@
 import { Request, Response } from "express";
-import ErrorHanlder from "../../libs/routes/errorHandler";
 
-const error = new ErrorHanlder();
 export default class Trainee {
   getAllTrainee = (req: Request, res: Response) => {
     return res.status(200).json({
@@ -42,10 +40,9 @@ export default class Trainee {
   updateTrainee = (req: Request, res: Response) => {
     const { id, firstname, lastname, email } = req.body;
     if (!id || !firstname || !lastname || !email) {
-      // return res.status(400).json({
-      //   error: "please fill all fields",
-      // });
-      throw error.errorHanlder(500, "Please fill all fields");
+      return res.status(400).json({
+        error: "please fill all fields",
+      });
     }
     return res.status(200).json({
       message: "trainee updated successfully!",
